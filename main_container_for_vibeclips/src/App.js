@@ -1,34 +1,24 @@
 import React from 'react';
 import './App.css';
+import VibeClipsContainer from './components/VideoContainer/VibeClipsContainer';
+import mockVideos from './data/mockVideos';
 
+/**
+ * App Component
+ * 
+ * Main application entry point that renders the VibeClipsContainer
+ */
 function App() {
   return (
     <div className="app">
-      <nav className="navbar">
-        <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-            <div className="logo">
-              <span className="logo-symbol">*</span> KAVIA AI
-            </div>
-            <button className="btn">Template Button</button>
-          </div>
+      <header className="app-header">
+        <div className="logo">
+          <span className="logo-symbol">✨</span> VibeClips
         </div>
-      </nav>
+      </header>
 
-      <main>
-        <div className="container">
-          <div className="hero">
-            <div className="subtitle">AI Workflow Manager Template</div>
-            
-            <h1 className="title">main_container_for_vibeclips</h1>
-            
-            <div className="description">
-              Start building your application.
-            </div>
-            
-            <button className="btn btn-large">Button</button>
-          </div>
-        </div>
+      <main className="app-main">
+        <VibeClipsContainer videos={mockVideos} />
       </main>
     </div>
   );
