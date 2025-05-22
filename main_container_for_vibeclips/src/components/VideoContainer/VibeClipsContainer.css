@@ -1,0 +1,117 @@
+.vibe-clips-container {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  position: relative;
+  background-color: var(--kavia-dark);
+}
+
+.video-wrapper {
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+/* Empty state styling */
+.vibe-clips-container.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  text-align: center;
+  padding: 20px;
+}
+
+.loading-icon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.loading-text {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* Bottom navigation bar */
+.app-navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+  cursor: pointer;
+  padding: 0 12px;
+}
+
+.nav-item.active {
+  color: white;
+}
+
+.nav-icon {
+  font-size: 1.4rem;
+  margin-bottom: 2px;
+}
+
+.nav-text {
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.nav-item-create {
+  transform: translateY(-15px);
+}
+
+.create-button {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #E87A41, #FF6B81);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 12px rgba(255, 107, 129, 0.4);
+}
+
+/* For larger screens - limit width for better UX */
+@media (min-width: 768px) {
+  .vibe-clips-container {
+    max-width: 420px;
+    margin: 0 auto;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+  }
+}
