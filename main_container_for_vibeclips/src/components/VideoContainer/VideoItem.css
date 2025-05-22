@@ -1,0 +1,136 @@
+.video-item {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-color);
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+.video-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: black;
+}
+
+.video-placeholder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.video-thumbnail {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.video-item.active .play-overlay {
+  opacity: 0;
+}
+
+.play-button {
+  font-size: 3rem;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.video-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  z-index: 10;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 12px;
+  border: 2px solid white;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.video-description {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  max-width: 80%;
+}
+
+.interaction-controls {
+  position: absolute;
+  right: 16px;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.control-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.control-icon {
+  font-size: 1.8rem;
+  margin-bottom: 4px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.3);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-count {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
