@@ -4,6 +4,9 @@
   --text-color: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.7);
   --border-color: rgba(255, 255, 255, 0.1);
+  --accent-color: #FF4081;
+  --gradient-start: #E87A41;
+  --gradient-end: #FF6B81;
 }
 
 body {
@@ -13,28 +16,35 @@ body {
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden; /* Prevent scrolling on the body */
 }
 
+/* App container */
 .app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  position: relative;
 }
 
-.navbar {
-  background-color: var(--kavia-dark);
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border-color);
+/* Header styling */
+.app-header {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 100;
+  box-sizing: border-box;
 }
 
+/* Logo styling */
 .logo {
   font-size: 1.25rem;
   font-weight: 600;
@@ -47,62 +57,42 @@ body {
   color: var(--kavia-orange);
 }
 
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 24px;
+/* Main content area */
+.app-main {
+  flex: 1;
+  position: relative;
   width: 100%;
-  box-sizing: border-box;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.hero {
-  padding-top: 120px;
-  padding-bottom: 64px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
-
-.subtitle {
-  color: var(--kavia-orange);
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-
-.title {
-  font-size: 3.5rem;
-  font-weight: 600;
-  line-height: 1.2;
-  margin: 0;
-}
-
-.description {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin-bottom: 16px;
-}
-
+/* Button styles preserved but simplified */
 .btn {
-  background-color: var(--kavia-orange);
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 10px 20px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .btn:hover {
-  background-color: #FF8B4D;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(232, 122, 65, 0.25);
 }
 
 .btn-large {
   padding: 12px 24px;
   font-size: 1.1rem;
+}
+
+/* For desktop screens, provide a container width constraint */
+@media (min-width: 768px) {
+  .app-main {
+    display: flex;
+    justify-content: center;
+  }
 }
